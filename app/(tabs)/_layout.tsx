@@ -1,33 +1,51 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import HomeIcon from "../SvgTags/home";
+import FoodIcon from "../SvgTags/food";
+import DirectionIcon from "../SvgTags/directions";
+import ProgressIcon from "../SvgTags/progress";
+import SupportIcon from "../SvgTags/support";
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: "#2CA0FF",
+        tabBarInactiveTintColor: "#bfbfbf",
+        tabBarLabelStyle: { fontWeight: "bold" },
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="Home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color }) => <HomeIcon color={color} />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="Nutrition"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerShown: false,
+          tabBarIcon: ({ color }) => <FoodIcon color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Discover"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => <DirectionIcon color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Progress"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => <ProgressIcon color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="Chatbot"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color }) => <SupportIcon color={color} />,
         }}
       />
     </Tabs>
