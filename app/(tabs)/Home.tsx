@@ -97,7 +97,7 @@ export default function Home() {
               value={text}
               onChangeText={setText}
               style={styles.input}
-              placeholderTextColor="#666"
+              placeholderTextColor="#39FF14"
             />
           </View>
         </View>
@@ -129,7 +129,8 @@ export default function Home() {
                 right: -170,
                 transform: [{ rotate: "42deg" }],
               }}
-              targetScreen="./screens/CoreChallenge" />
+              targetScreen="./screens/CoreChallenge"
+            />
             <ChallengeCard
               days="7-Day"
               title="Full Body Burn"
@@ -142,8 +143,9 @@ export default function Home() {
                 right: -120,
                 bottom: 10,
                 transform: [{ rotateY: "-180deg" }],
-              }} 
-              targetScreen="./screens/CoreChallenge" />
+              }}
+              targetScreen="./screens/CoreChallenge"
+            />
             <ChallengeCard
               days="30-Day"
               title="Yoga Flow"
@@ -156,8 +158,9 @@ export default function Home() {
                 top: 15,
                 right: -100,
                 transform: [{ rotateX: "40deg" }],
-              }} 
-              targetScreen="./screens/CoreChallenge" />
+              }}
+              targetScreen="./screens/CoreChallenge"
+            />
             <ChallengeCard
               days="21-Day"
               title="Strength Challenge"
@@ -170,8 +173,9 @@ export default function Home() {
                 bottom: 0,
                 right: -160,
                 transform: [{ rotateY: "-180deg" }],
-              }} 
-              targetScreen="./screens/CoreChallenge" />
+              }}
+              targetScreen="./screens/CoreChallenge"
+            />
           </ScrollView>
         </View>
 
@@ -183,7 +187,6 @@ export default function Home() {
           </Text>
         </View>
 
-        {/* FlatList JUST for Made for You Workouts */}
         <FlatList
           data={workouts}
           keyExtractor={(item, index) => index.toString()}
@@ -195,14 +198,16 @@ export default function Home() {
               image={item.image}
             />
           )}
-          scrollEnabled={false} // important, since ScrollView is parent
+          scrollEnabled={false}
           contentContainerStyle={{ paddingBottom: 20 }}
         />
 
         {/* Our Favourites Section */}
         <View style={styles.sectionContainer}>
           <Text style={styles.title}>Our Favourites</Text>
-          <Text style={styles.subtitle}>Curated workouts we love and know you’ll enjoy too.</Text>
+          <Text style={styles.subtitle}>
+            Curated workouts we love and know you’ll enjoy too.
+          </Text>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -229,10 +234,12 @@ export default function Home() {
           </ScrollView>
         </View>
 
-        {/* Top hits Section */}
+        {/* Top Hits Section */}
         <View style={styles.sectionContainer}>
           <Text style={styles.title}>Top Hits</Text>
-          <Text style={styles.subtitle}>Your must-try workouts everyone's loving right now.</Text>
+          <Text style={styles.subtitle}>
+            Your must-try workouts everyone's loving right now.
+          </Text>
           <FlatList
             data={tophits}
             keyExtractor={(item, index) => index.toString()}
@@ -244,7 +251,7 @@ export default function Home() {
                 image={item.image}
               />
             )}
-            scrollEnabled={false} // important, since ScrollView is parent
+            scrollEnabled={false}
             contentContainerStyle={{ paddingBottom: 20 }}
           />
         </View>
@@ -254,9 +261,9 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: "#fff", flex: 1 },
+  container: { backgroundColor: "#000", flex: 1 },
   header: {
-    backgroundColor: "#fff",
+    backgroundColor: "#000",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -266,17 +273,22 @@ const styles = StyleSheet.create({
   searchBoxContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#EFF2EB",
+    backgroundColor: "#111",
     borderRadius: 30,
     paddingHorizontal: 15,
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "#39FF14",
   },
-  searchIcon: { color: "#bbb", marginRight: 10 },
-  input: { flex: 1, fontWeight: "300", fontSize: 15, color: "#bbb" },
-  title: { paddingHorizontal: 40, fontWeight: "700", fontSize: 25 },
-  subtitle: { paddingVertical: 5, paddingHorizontal: 40, fontWeight: "400", fontSize: 12 },
+  searchIcon: { color: "#39FF14", marginRight: 10 },
+  input: {
+    flex: 1,
+    fontWeight: "300",
+    fontSize: 15,
+    color: "#39FF14",
+  },
+  title: { paddingHorizontal: 40, fontWeight: "700", fontSize: 25, color: "#39FF14" },
+  subtitle: { paddingVertical: 5, paddingHorizontal: 40, fontWeight: "400", fontSize: 12, color: "#39FF14" },
   bannercontainer: { paddingVertical: 60, paddingHorizontal: 30 },
   sectionContainer: { marginTop: 20 },
-  sectionTitle: { paddingHorizontal: 40, fontWeight: "700", fontSize: 20 },
+  sectionTitle: { paddingHorizontal: 40, fontWeight: "700", fontSize: 20, color: "#39FF14" },
 });

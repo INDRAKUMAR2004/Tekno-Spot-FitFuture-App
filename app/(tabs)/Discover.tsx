@@ -46,7 +46,7 @@ export default function DiscoverScreen() {
 
       {/* Next-Level Section */}
       <Text style={styles.sectionTitle}>Next-Level Sessions</Text>
-      <ScrollView style={{paddingBottom: 50}} horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView style={{ paddingBottom: 50 }} horizontal showsHorizontalScrollIndicator={false}>
         {[
           { title: "Cardio Blast", img: require("../Components/Images/bicycle.png") },
           { title: "Core Burn", img: require("../Components/Images/russian.png") },
@@ -63,22 +63,26 @@ export default function DiscoverScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16, paddingVertical: 40, },
-  header: { fontSize: 22, fontWeight: "bold", marginBottom: 16 },
-  heroCard: { borderRadius: 15, overflow: "hidden", marginBottom: 20 },
-  heroImage: { width: "100%", height: 180, borderRadius: 15 },
+  container: { flex: 1, backgroundColor: "#000", padding: 16, paddingVertical: 40 },
+  header: { fontSize: 22, fontWeight: "bold", marginBottom: 16, color: "#39FF14" },
+
+  heroCard: { borderRadius: 15, overflow: "hidden", marginBottom: 20, backgroundColor: "#111" },
+  heroImage: { width: "100%", height: 180, borderRadius: 15, opacity: 0.8 },
   heroOverlay: { position: "absolute", bottom: 20, left: 20, right: 20 },
-  heroTitle: { fontSize: 18, fontWeight: "bold", color: "#fff" },
-  heroSubtitle: { fontSize: 14, color: "#eee", marginVertical: 4 },
-  heroButton: { backgroundColor: "#2E8BFF", paddingHorizontal: 15, paddingVertical: 6, borderRadius: 8, marginTop: 6 },
-  heroButtonText: { color: "#fff", fontWeight: "600" },
-  sectionTitle: { fontSize: 18, fontWeight: "600", marginVertical: 10 },
-  smallCard: { marginRight: 12, width: 150 },
+  heroTitle: { fontSize: 18, fontWeight: "bold", color: "#39FF14" },
+  heroSubtitle: { fontSize: 14, color: "#aaa", marginVertical: 4 },
+  heroButton: { backgroundColor: "#39FF14", paddingHorizontal: 15, paddingVertical: 6, borderRadius: 8, marginTop: 6 },
+  heroButtonText: { color: "#000", fontWeight: "600" },
+
+  sectionTitle: { fontSize: 18, fontWeight: "600", marginVertical: 10, color: "#39FF14" },
+
+  smallCard: { marginRight: 12, width: 150, backgroundColor: "#111", borderRadius: 10, padding: 6 },
   smallImage: { width: "100%", height: 90, borderRadius: 10 },
-  smallTitle: { fontWeight: "600", marginTop: 6 },
-  smallSubtitle: { fontSize: 12, color: "#666" },
-  banner: { marginVertical: 20, borderRadius: 15, overflow: "hidden" },
-  bannerImage: { width: "100%", height: 150 },
+  smallTitle: { fontWeight: "600", marginTop: 6, color: "#fff" },
+  smallSubtitle: { fontSize: 12, color: "#39FF14" },
+
+  banner: { marginVertical: 20, borderRadius: 15, overflow: "hidden", backgroundColor: "#111" },
+  bannerImage: { width: "100%", height: 150, opacity: 0.7 },
   bannerOverlay: { position: "absolute", left: 20, right: 20, bottom: 20 },
-  bannerText: { fontSize: 16, fontWeight: "bold", color: "#fff" },
+  bannerText: { fontSize: 16, fontWeight: "bold", color: "#39FF14" },
 });

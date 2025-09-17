@@ -9,9 +9,10 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#2CA0FF",
-        tabBarInactiveTintColor: "#bfbfbf",
+        tabBarActiveTintColor: "#39FF14", // Neon green active tint
+        tabBarInactiveTintColor: "#888", // Slightly dimmed gray
         tabBarLabelStyle: { fontWeight: "bold" },
+        tabBarStyle: { backgroundColor: "#000", borderTopColor: "#222" }, // Black background
       }}
     >
       <Tabs.Screen
@@ -51,3 +52,4 @@ export default function TabsLayout() {
     </Tabs>
   );
 }
+  

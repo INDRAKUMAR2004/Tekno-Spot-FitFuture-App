@@ -8,11 +8,11 @@ export default function ProfileEditScreen() {
   const { profile, setProfile } = useProfile();
   const router = useRouter();
 
-  const [name, setName] = useState(profile.name);
-  const [email, setEmail] = useState(profile.email);
-  const [phone, setPhone] = useState(profile.phone);
-  const [weight, setWeight] = useState(profile.weight);
-  const [height, setHeight] = useState(profile.height);
+  const [name, setName] = useState(profile?.name);
+  const [email, setEmail] = useState(profile?.email);
+  const [phone, setPhone] = useState(profile?.phone);
+  const [weight, setWeight] = useState(profile?.weight);
+  const [height, setHeight] = useState(profile?.height);
 
   const handleUpdate = () => {
     setProfile({ name, email, phone, weight, height });
@@ -24,7 +24,7 @@ export default function ProfileEditScreen() {
     <TouchableOpacity onPress={() => router.push("/screens/Profile")}><FontAwesome name="arrow-left" size={20}/></TouchableOpacity>
       <Text style={styles.header}>My Profile</Text>
       <Image
-        source={{ uri: "https://randomuser.me/api/portraits/women/44.jpg" }}
+        source={{ uri: "https://randomuser.me/api/portraits/men/20.jpg" }}
         style={styles.avatar}
       />
       <Text style={styles.name}>{name}</Text>

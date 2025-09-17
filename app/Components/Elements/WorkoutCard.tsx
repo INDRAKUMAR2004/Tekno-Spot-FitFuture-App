@@ -27,7 +27,7 @@ const WorkoutCard: React.FC<Props> = ({ title, description, details, image }) =>
 const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
-    backgroundColor: "#fff",
+    backgroundColor: "#000", // Black background
     borderRadius: 20,
     padding: 10,
     marginVertical: 8,
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     // Shadow for iOS
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowColor: "#39FF14", // Neon green shadow
+    shadowOpacity: 0.5,
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 2 },
 
     // Shadow for Android
-    elevation: 3,
+    elevation: 5,
   },
   image: {
     width: 120,
@@ -57,17 +57,17 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#000",
+    color: "#39FF14", // Neon green text
     marginBottom: 4,
   },
   description: {
     fontSize: 13,
-    color: "#555",
+    color: "#39FF14", // Neon green text
     marginBottom: 6,
   },
   details: {
     fontSize: 12,
-    color: "#888",
+    color: "#39FF14", // Neon green text
   },
 });
 

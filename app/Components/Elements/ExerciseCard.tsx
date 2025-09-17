@@ -18,12 +18,12 @@ const ExerciseCard: React.FC<Props> = ({ title, duration, calories, image }) => 
 
       <View style={styles.infoRow}>
         <View style={styles.infoItem}>
-          <FontAwesome name="clock-o" size={14} color="#2CA0FF" />
+          <FontAwesome name="clock-o" size={14} color="#39FF14" />
           <Text style={styles.infoText}>{duration}</Text>
         </View>
 
         <View style={styles.infoItem}>
-          <FontAwesome name="fire" size={14} color="#2CA0FF" />
+          <FontAwesome name="fire" size={14} color="#39FF14" />
           <Text style={styles.infoText}>{calories}</Text>
         </View>
       </View>
@@ -33,17 +33,17 @@ const ExerciseCard: React.FC<Props> = ({ title, duration, calories, image }) => 
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: "#000", // Black background
     borderRadius: 15,
     marginHorizontal: 10,
     marginVertical: 8,
     width: 200,
     paddingBottom: 12,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
+    shadowColor: "#39FF14", // Neon green shadow
+    shadowOpacity: 0.5,
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 2 },
-    elevation: 3,
+    elevation: 5,
   },
   image: {
     width: "100%",
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 10,
     marginHorizontal: 10,
-    color: "#333",
+    color: "#39FF14", // Neon green text
   },
   infoRow: {
     flexDirection: "row",
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   infoText: {
     fontSize: 12,
-    color: "#666",
+    color: "#39FF14", // Neon green text
     marginLeft: 4,
   },
 });

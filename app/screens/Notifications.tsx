@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -10,38 +10,50 @@ type Notification = {
   time: string;
 };
 
-const notifications: { section: string; data: Notification[] }[] = [
-  {
-    section: "Today",
-    data: [
-      { id: "1", title: "New Workout Is Available", date: "June 10", time: "10:00 AM" },
-      { id: "2", title: "Don't Forget To Drink Water", date: "June 10", time: "8:00 AM" },
-    ],
-  },
-  {
-    section: "Yesterday",
-    data: [
-      { id: "3", title: "Upper Body Workout Completed!", date: "June 09", time: "6:00 PM" },
-      { id: "4", title: "Remember Your Exercise Session", date: "June 09", time: "3:00 PM" },
-    ],
-  },
-  {
-    section: "May 29 - 2025",
-    data: [
-      { id: "5", title: "You Started A New Challenge!", date: "May 29", time: "9:00 AM" },
-      { id: "6", title: "New House Training Ideas!", date: "May 29", time: "8:29 AM" },
-      { id: "7", title: "We’ve Detected A Login From A New Device", date: "June 10", time: "5:00 AM" },
-    ],
-  },
-];
+type NotificationSection = {
+  section: string;
+  data: Notification[];
+};
 
 export default function NotificationScreen() {
+  const [notifications, setNotifications] = useState<NotificationSection[]>([]);
+
+  useEffect(() => {
+    // Simulate fetching from backend (replace with Firebase/Node API later)
+    const fetchNotifications = async () => {
+      const userData: NotificationSection[] = [
+        {
+          section: "Today",
+          data: [
+            { id: "1", title: "New Workout Is Available", date: "Sept 17", time: "10:00 AM" },
+            { id: "2", title: "Don’t Forget To Drink Water", date: "Sept 17", time: "8:00 AM" },
+          ],
+        },
+        {
+          section: "Yesterday",
+          data: [
+            { id: "3", title: "Upper Body Workout Completed!", date: "Sept 16", time: "6:00 PM" },
+            { id: "4", title: "Remember Your Exercise Session", date: "Sept 16", time: "3:00 PM" },
+          ],
+        },
+      ];
+      setNotifications(userData);
+    };
+
+    fetchNotifications();
+  }, []);
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => router.push("/(tabs)/Home")}>
-        <FontAwesome name="arrow-left" size={20}/>
+      {/* Back Button */}
+      <TouchableOpacity onPress={() => router.push("/(tabs)/Home")} style={styles.backBtn}>
+        <FontAwesome name="arrow-left" size={20} color="#39FF14" />
       </TouchableOpacity>
-      <Text style={styles.header}>Notification</Text>
+
+      {/* Header */}
+      <Text style={styles.header}>Notifications</Text>
+
+      {/* List */}
       <FlatList
         data={notifications}
         keyExtractor={(item, index) => index.toString()}
@@ -50,7 +62,7 @@ export default function NotificationScreen() {
             <Text style={styles.sectionTitle}>{item.section}</Text>
             {item.data.map((notif) => (
               <TouchableOpacity key={notif.id} style={styles.card}>
-                <Ionicons name="notifications-circle" size={28} color="#3B82F6" />
+                <Ionicons name="notifications-circle" size={28} color="#39FF14" />
                 <View style={{ marginLeft: 10 }}>
                   <Text style={styles.title}>{notif.title}</Text>
                   <Text style={styles.time}>
@@ -67,19 +79,55 @@ export default function NotificationScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16, paddingTop: 50 },
-  header: { fontSize: 20, fontWeight: "700", marginBottom: 12, textAlign: "center" },
-  section: { marginBottom: 20 },
-  sectionTitle: { fontSize: 16, fontWeight: "600", marginBottom: 10, color: "#444" },
+  container: {
+    flex: 1,
+    backgroundColor: "#000", // Black background
+    padding: 16,
+    paddingTop: 50,
+  },
+  backBtn: {
+    marginBottom: 10,
+  },
+  header: {
+    fontSize: 22,
+    fontWeight: "700",
+    textAlign: "center",
+    marginBottom: 20,
+    color: "#39FF14",
+    textShadowColor: "#39FF14",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+  },
+  section: {
+    marginBottom: 25,
+  },
+  sectionTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginBottom: 10,
+    color: "#39FF14",
+    textShadowColor: "#39FF14",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 5,
+  },
   card: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#F9FAFB",
-    padding: 12,
+    backgroundColor: "#111", // Dark card
+    padding: 14,
     borderRadius: 12,
     marginBottom: 10,
-    elevation: 1,
+    borderWidth: 1,
+    borderColor: "#39FF14", // Neon border
   },
-  title: { fontSize: 15, fontWeight: "500", color: "#111" },
-  time: { fontSize: 13, color: "#666", marginTop: 2 },
+  title: {
+    fontSize: 15,
+    fontWeight: "500",
+    color: "#fff",
+  },
+  time: {
+    fontSize: 13,
+    color: "#aaa",
+    marginTop: 2,
+  },
 });

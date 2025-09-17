@@ -1,44 +1,94 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+createUserWithEmailAndPassword,
+onAuthStateChanged,
+signInWithEmailAndPassword,
+signOut,
+User,
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../firebaseConfig";
+import { auth, db } from "../firebaseConfig";
 
-const AuthContext = createContext(null);
+type AuthContextType = {
+user: User | null;
+login: (email: string, password: string) => Promise<any>;
+signup: (
+email: string,
+password: string,
+name: string,
+age: number,
+height: string,
+weight: string
+) => Promise<void>;
+logout: () => Promise<void>;
+loading: boolean;
+};
 
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [onboardingComplete, setOnboardingComplete] = useState(false);
+const AuthContext = createContext<AuthContextType | null>(null);
 
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (usr) => {
-      setUser(usr);
-      if (usr) {
-        const onboard = await AsyncStorage.getItem("onboardingComplete");
-        setOnboardingComplete(onboard === "true");
-      }
-      setLoading(false);
-    });
-    return () => unsub();
-  }, []);
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+const [user, setUser] = useState<User | null>(null);
+const [loading, setLoading] = useState(true);
 
-  const login = (email: string, password: string) => signInWithEmailAndPassword(auth, email, password);
-  const signup = async (email: string, password: string) => {
-    await createUserWithEmailAndPassword(auth, email, password);
-    await AsyncStorage.setItem("onboardingComplete", "false");
-  };
-  const logout = () => signOut(auth);
+useEffect(() => {
+const unsub = onAuthStateChanged(auth, (usr) => {
+setUser(usr);
+setLoading(false);
+});
+return () => unsub();
+}, []);
 
-  const completeOnboarding = async () => {
-    await AsyncStorage.setItem("onboardingComplete", "true");
-    setOnboardingComplete(true);
-  };
+const login = (email: string, password: string) =>
+signInWithEmailAndPassword(auth, email, password);
 
-  return (
-    <AuthContext.Provider value={{ user, login, signup, logout, loading, onboardingComplete, completeOnboarding }}>
-      {children}
-    </AuthContext.Provider>
-  );
+const signup = async (
+email: string,
+password: string,
+name: string,
+age: number,
+height: string,
+weight: string
+) => {
+const userCredential = await createUserWithEmailAndPassword(
+auth,
+email,
+password
+);
+const createdUser = userCredential.user;
+
+// Create user profile document in Firestore
+await setDoc(doc(db, "users", createdUser.uid), {
+  name,
+  email,
+  age,
+  height,
+  weight,
+});
+
+
+};
+
+const logout = () => signOut(auth);
+
+return (
+<AuthContext.Provider
+value={{
+user,
+login,
+signup,
+logout,
+loading,
+}}
+>
+{children}
+</AuthContext.Provider>
+);
 }
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+const context = useContext(AuthContext);
+if (!context) {
+throw new Error("useAuth must be used within AuthProvider");
+}
+return context;
+};

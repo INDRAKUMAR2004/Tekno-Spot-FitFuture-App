@@ -18,7 +18,7 @@ export default function ForgotPassword() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Forgot Password?</Text>
-      <TextInput style={styles.input} placeholder="Email" onChangeText={setEmail} value={email} />
+      <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#0f0" onChangeText={setEmail} value={email} />
       <TouchableOpacity style={styles.button} onPress={handleReset}>
         <Text style={styles.buttonText}>Send Reset Link</Text>
       </TouchableOpacity>

@@ -21,8 +21,8 @@ export default function Login() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome Back</Text>
-      <TextInput style={styles.input} placeholder="Email" onChangeText={setEmail} value={email} />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry onChangeText={setPassword} value={password} />
+      <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#0f0" onChangeText={setEmail} value={email} />
+      <TextInput style={styles.input} placeholder="Password" placeholderTextColor="#0f0" secureTextEntry onChangeText={setPassword} value={password} />
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>

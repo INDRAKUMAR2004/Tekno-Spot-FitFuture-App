@@ -15,14 +15,9 @@ import {
   View,
 } from "react-native";
 
-/**
- * IMPORTANT:
- * Replace GROQ_API_KEY with your key from https://console.groq.com/
- * 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
- */
-const GROQ_API_KEY = "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"; // <--- paste here
+const GROQ_API_KEY = "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"; 
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
-const MODEL = "llama-3.3-70b-versatile"; // fast & strong
+const MODEL = "llama-3.3-70b-versatile";
 
 type Message = {
   id: string;
@@ -121,14 +116,14 @@ export default function Chatbot() {
   };
 
   return (
-    <SafeAreaView style={styles.safe}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={90}
-      >
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      keyboardVerticalOffset={90}
+    >
+      <SafeAreaView style={styles.safe}>
         <View style={styles.header}>
-          <Ionicons name="chatbubbles" size={22} color="#2E8BFF" />
+          <Ionicons name="chatbubbles" size={22} color="#39FF14" />
           <Text style={styles.headerText}>Assistant (Groq)</Text>
         </View>
 
@@ -149,7 +144,7 @@ export default function Chatbot() {
             onChangeText={setInput}
             placeholder="Type a message..."
             multiline
-            placeholderTextColor="#999"
+            placeholderTextColor="#777"
           />
           <TouchableOpacity
             style={[styles.sendBtn, loading ? styles.sendBtnDisabled : null]}
@@ -157,57 +152,61 @@ export default function Chatbot() {
             disabled={loading}
             activeOpacity={0.8}
           >
-            {loading ? <ActivityIndicator color="#fff" /> : <Ionicons name="send" size={18} color="#fff" />}
+            {loading ? (
+              <ActivityIndicator color="#000" />
+            ) : (
+              <Ionicons name="send" size={18} color="#000" />
+            )}
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </KeyboardAvoidingView>
   );
 }
 
-/* Same styles from your code */
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: "#f8f8f9", paddingTop: 20 },
-  container: { flex: 1 },
+  safe: { flex: 1, backgroundColor: "#000", paddingTop: 20 },
+  container: { flex: 1, backgroundColor: "#000" },
   header: {
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 14,
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderColor: "#eee",
-    backgroundColor: "#fff",
+    borderColor: "#111",
+    backgroundColor: "#000",
     paddingTop: 30,
   },
-  headerText: { fontSize: 18, fontWeight: "700", marginLeft: 8, color: "#2E8BFF" },
+  headerText: { fontSize: 18, fontWeight: "700", marginLeft: 8, color: "#39FF14" },
   chatContainer: { padding: 12, paddingBottom: 24, flexGrow: 1 },
   messageRow: { marginVertical: 6, flexDirection: "row" },
   messageRowUser: { justifyContent: "flex-end" },
   messageRowAi: { justifyContent: "flex-start" },
   bubble: { maxWidth: "82%", padding: 12, borderRadius: 14 },
-  userBubble: { backgroundColor: "#2E8BFF", borderBottomRightRadius: 4 },
-  aiBubble: { backgroundColor: "#fff", borderWidth: 1, borderColor: "#e6e6e6" },
+  userBubble: { backgroundColor: "#39FF14", borderBottomRightRadius: 4 },
+  aiBubble: { backgroundColor: "#111", borderWidth: 1, borderColor: "#39FF14" },
   msgText: { fontSize: 15, lineHeight: 20 },
-  userText: { color: "#fff" },
-  aiText: { color: "#111" },
-  msgTime: { fontSize: 11, color: "#999", marginTop: 8, textAlign: "right" },
+  userText: { color: "#000" }, // neon green bubble -> black text
+  aiText: { color: "#39FF14" },
+  msgTime: { fontSize: 11, color: "#777", marginTop: 8, textAlign: "right" },
   inputRow: {
     flexDirection: "row",
     alignItems: "center",
     padding: 8,
     borderTopWidth: 1,
-    borderTopColor: "#eee",
-    backgroundColor: "#fff",
+    borderTopColor: "#111",
+    backgroundColor: "#000",
   },
   input: {
     flex: 1,
-    backgroundColor: "#f2f3f5",
+    backgroundColor: "#111",
     borderRadius: 22,
     paddingHorizontal: 16,
     paddingVertical: Platform.OS === "ios" ? 10 : 6,
     marginHorizontal: 8,
     maxHeight: 120,
+    color: "#39FF14",
   },
-  sendBtn: { backgroundColor: "#2E8BFF", padding: 12, borderRadius: 20 },
+  sendBtn: { backgroundColor: "#39FF14", padding: 12, borderRadius: 20 },
   sendBtnDisabled: { opacity: 0.7 },
 });

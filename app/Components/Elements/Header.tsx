@@ -13,10 +13,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Header = () => {
   const router = useRouter();
-  const profile = useProfile();
+  const { profile } = useProfile(); // Get profile data from ProfileContext
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeArea}>
       <View style={styles.topBar}>
         <ScrollView
           horizontal
@@ -29,12 +29,9 @@ const Header = () => {
         >
           <View style={styles.leftContainer}>
             <View>
-  
               <View style={styles.locationTopRow}>
-                <Text
-                  style={styles.username}
-                >
-                 Hi, {profile.profile.name}
+                <Text style={styles.username}>
+                  Hi, {profile?.name || "Guest"}
                 </Text>
               </View>
 
@@ -43,19 +40,30 @@ const Header = () => {
                 numberOfLines={1}
                 ellipsizeMode="clip"
               >
-               It's time to challenge your limits.
+                It's time to challenge your limits.
               </Text>
             </View>
           </View>
         </ScrollView>
-        <TouchableOpacity onPress={() => router.push("/screens/Notifications")}>
+
+        {/* Info Button */}
+        <TouchableOpacity onPress={() => router.push("/screens/About")}>
           <View style={styles.profileIcon}>
-            <FontAwesome name='bell' size={24}/>
+            <FontAwesome name="info-circle" size={24} color="#39FF14" />
           </View>
         </TouchableOpacity>
+
+        {/* Notifications Button */}
+        <TouchableOpacity onPress={() => router.push("/screens/Notifications")}>
+          <View style={styles.profileIcon}>
+            <FontAwesome name="bell" size={24} color="#39FF14" />
+          </View>
+        </TouchableOpacity>
+
+        {/* Profile Button */}
         <TouchableOpacity onPress={() => router.push("/screens/Profile")}>
           <View style={styles.profileIcon}>
-            <FontAwesome name='user' size={24}/>
+            <FontAwesome name="user" size={24} color="#39FF14" />
           </View>
         </TouchableOpacity>
       </View>
@@ -64,31 +72,37 @@ const Header = () => {
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: "#000",
+  },
   topBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: "stretch",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 12,
+    paddingVertical: 10,
+    backgroundColor: "#000",
   },
   leftContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     flex: 1,
-    width: 270,
+    width: 240,
   },
   locationTopRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
   },
   username: {
     fontSize: 20,
     fontWeight: "bold",
+    color: "#39FF14",
     marginRight: 5,
   },
   description: {
     fontSize: 12,
-    color: 'gray',
-    paddingVertical: 5
+    color: "#39FF14",
+    paddingVertical: 5,
   },
   profileIcon: {
     width: 40,
@@ -97,11 +111,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: "auto",
-  },
-  profileText: {
-    color: "#fff",
-    fontWeight: 'bold',
-    fontSize: 18,
   },
 });
 
