@@ -30,7 +30,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "welcome",
-      text: "Hi 👋 I’m your AI assistant (Groq-powered)!",
+      text: "Hi 👋 I’m your AI assistant FitBot",
       sender: "ai",
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     },
@@ -124,7 +124,7 @@ export default function Chatbot() {
       <SafeAreaView style={styles.safe}>
         <View style={styles.header}>
           <Ionicons name="chatbubbles" size={22} color="#39FF14" />
-          <Text style={styles.headerText}>Assistant (Groq)</Text>
+          <Text style={styles.headerText}>FitBot</Text>
         </View>
 
         <FlatList

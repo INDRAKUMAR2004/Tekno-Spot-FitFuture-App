@@ -40,15 +40,32 @@ export default function WorkoutDetails() {
   );
 }
 
+const neonGreen = "#39FF14";
+const darkBg = "#0d0d0d";
+
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#fff", padding: 16 },
-  topCard: { flexDirection: "row", backgroundColor: "#f9f9f9", borderRadius: 15, padding: 10, marginBottom: 20 },
-  cardImage: { width: 80, height: 80, borderRadius: 12 },
-  cardTitle: { fontSize: 16, fontWeight: "bold" },
-  cardDesc: { fontSize: 13, color: "#666" },
-  duration: { fontSize: 12, color: "#444", marginTop: 6 },
-  sectionHeader: { fontSize: 18, fontWeight: "bold", marginVertical: 12 },
-  text: { fontSize: 14, color: "#333", marginBottom: 6 },
-  button: { backgroundColor: "#2E8BFF", padding: 15, borderRadius: 12, alignItems: "center", marginVertical: 20 },
-  buttonText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
+  container: { flex: 1, backgroundColor: darkBg, padding: 16, paddingTop: 50 },
+  topCard: { 
+    flexDirection: "row", 
+    backgroundColor: "#1a1a1a", 
+    borderRadius: 15, 
+    padding: 10, 
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: neonGreen
+  },
+  cardImage: { width: 80, height: 80, borderRadius: 12, borderWidth: 2, borderColor: neonGreen },
+  cardTitle: { fontSize: 18, fontWeight: "bold", color: neonGreen },
+  cardDesc: { fontSize: 13, color: "#aaa" },
+  duration: { fontSize: 12, color: neonGreen, marginTop: 6 },
+  sectionHeader: { fontSize: 18, fontWeight: "bold", marginVertical: 12, color: neonGreen },
+  text: { fontSize: 14, color: "#eee", marginBottom: 6 },
+  button: { 
+    backgroundColor: neonGreen, 
+    padding: 15, 
+    borderRadius: 12, 
+    alignItems: "center", 
+    marginVertical: 20 
+  },
+  buttonText: { color: darkBg, fontWeight: "bold", fontSize: 16 },
 });

@@ -46,7 +46,7 @@ const ChallengeCard: React.FC<Props> = ({ days, title, points, goal, image, imag
 
           <Text style={styles.goal}>{goal}</Text>
 
-          <TouchableOpacity style={styles.button} onPress={() => router.push(targetScreen)}>
+          <TouchableOpacity style={styles.button} onPress={() => router.push("/screens/CoreChallenge")}>
             <Text style={styles.buttonText}>Start</Text>
           </TouchableOpacity>
         </View>

@@ -1,108 +1,141 @@
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from "react-native";
-import * as Progress from "react-native-progress" // Create a custom progress bar component
-import { useNavigation } from "@react-navigation/native";
-import { router, useRouter } from "expo-router";
+import * as Progress from "react-native-progress";
+import { useRouter } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function ChallengeOverview() {
-    const router = useRouter();
+  const router = useRouter();
 
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.headerRow}>
+        <TouchableOpacity onPress={() => router.push("/(tabs)/Home")}>
+          <FontAwesome name="arrow-left" size={22} color="#39FF14" />
+        </TouchableOpacity>
+        <Text style={styles.header}>Core Challenge</Text>
+      </View>
 
-    return (
-        <ScrollView style={styles.container}>
-            <Text style={styles.header}><TouchableOpacity onPress={() => router.push("/(tabs)/Home")}><FontAwesome name="arrow-left" size={20} />
-            </TouchableOpacity> Core Challenge</Text>
-            <Text style={styles.description}>
-                5-10 min abs workout daily • Planks, crunches, leg raises{'\n'}
-                Goal: Stronger core & better posture
-            </Text>
+      <Text style={styles.description}>
+        5-10 min abs workout daily • Planks, crunches, leg raises{"\n"}
+        <Text style={{ fontWeight: "bold", color: "#39FF14" }}>
+          Goal: Stronger core & better posture
+        </Text>
+      </Text>
 
-            <Progress.Bar progress={0} />
+      <Progress.Bar
+        progress={0.3}
+        width={null}
+        height={12}
+        color="#39FF14"
+        unfilledColor="#222"
+        borderWidth={0}
+        style={styles.progress}
+      />
 
-            <View style={styles.timeline}>
-                <Text>Week 1</Text>
-                {/* Render clickable day indicators */}
-                <View style={styles.daysRow}>
-                    {[1, 2, 3, 4, 5, 6, 7].map((day) => (
-                        <View key={day} style={styles.dayCircle}>
-                            <Text>{day}</Text>
-                        </View>
-                    ))}
-                </View>
-
-                <Text>Week 2</Text>
-                <View style={styles.daysRow}>
-                    {[1, 2, 3, 4, 5, 6, 7].map((day) => (
-                        <View key={day} style={styles.dayCircle}>
-                            <Text>{day}</Text>
-                        </View>
-                    ))}
-                </View>
+      <View style={styles.timeline}>
+        <Text style={styles.timelineHeader}>Week 1</Text>
+        <View style={styles.daysRow}>
+          {[1, 2, 3, 4, 5, 6, 7].map((day) => (
+            <View key={day} style={styles.dayCircle}>
+              <Text style={styles.dayText}>{day}</Text>
             </View>
+          ))}
+        </View>
 
-            <TouchableOpacity style={styles.button} onPress={() => router.push("/screens/DayExercises")}>
-                <Text style={styles.buttonText}>Start</Text>
-            </TouchableOpacity>
-        </ScrollView>
-    );
+        <Text style={styles.timelineHeader}>Week 2</Text>
+        <View style={styles.daysRow}>
+          {[1, 2, 3, 4, 5, 6, 7].map((day) => (
+            <View key={day} style={styles.dayCircle}>
+              <Text style={styles.dayText}>{day}</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => router.push("/screens/DayExercises")}
+      >
+        <Text style={styles.buttonText}>Start</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fafafa",
-        padding: 20,
-        paddingVertical: 30
-    },
-    header: {
-        fontSize: 28,
-        fontWeight: "bold",
-        color: "#333",
-        marginBottom: 15,
-    },
-    description: {
-        fontSize: 16,
-        color: "#555",
-        marginBottom: 15,
-        lineHeight: 22,
-    },
-    timeline: {
-        backgroundColor: "#fff",
-        borderRadius: 12,
-        padding: 15,
-        shadowColor: "#000",
-        shadowOpacity: 0.05,
-        shadowRadius: 10,
-        elevation: 3,
-        marginBottom: 20,
-    },
-    daysRow: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginVertical: 10,
-    },
-    dayCircle: {
-        width: 36,
-        height: 36,
-        borderRadius: 18,
-        backgroundColor: "#3B82F6",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    dayText: {
-        color: "#fff",
-        fontWeight: "bold",
-    },
-    button: {
-        backgroundColor: "#3B82F6",
-        paddingVertical: 16,
-        borderRadius: 12,
-        alignItems: "center",
-        marginVertical: 20,
-    },
-    buttonText: {
-        color: "#fff",
-        fontWeight: "bold",
-        fontSize: 18,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#000", // Dark background
+    padding: 20,
+    paddingVertical: 30,
+  },
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 15,
+  },
+  header: {
+    fontSize: 26,
+    fontWeight: "bold",
+    color: "#39FF14",
+    marginLeft: 12,
+  },
+  description: {
+    fontSize: 16,
+    color: "#aaa",
+    marginBottom: 15,
+    lineHeight: 22,
+  },
+  progress: {
+    marginBottom: 20,
+  },
+  timeline: {
+    backgroundColor: "#111",
+    borderRadius: 12,
+    padding: 15,
+    shadowColor: "#39FF14",
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+    marginBottom: 20,
+  },
+  timelineHeader: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#39FF14",
+    marginBottom: 8,
+  },
+  daysRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: 10,
+  },
+  dayCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#39FF14",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  dayText: {
+    color: "#000",
+    fontWeight: "bold",
+  },
+  button: {
+    backgroundColor: "#39FF14",
+    paddingVertical: 16,
+    borderRadius: 30,
+    alignItems: "center",
+    marginVertical: 20,
+    shadowColor: "#39FF14",
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  buttonText: {
+    color: "#000",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
 });
