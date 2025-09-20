@@ -3,7 +3,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet } from "rea
 export default function ExerciseDetail() {
     return (
         <ScrollView style={styles.container}>
-            <Image source={require("../Components/Images/plank.png")} style={styles.image} />
+            <Image source={require("../Components/Images/plank.jpg")} style={styles.image} />
 
             <Text style={styles.exerciseTitle}>Plank Hold</Text>
             <Text style={styles.duration}>00:30</Text>

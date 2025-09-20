@@ -2,10 +2,10 @@ import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from "react
 import { useRouter } from "expo-router";
 
 const exercises = [
-  { title: "Plank Hold", description: "Engages Core and Shoulders", duration: "00:30", image: require("../Components/Images/plank.png") },
-  { title: "Bicycle Crunches", description: "Targets Abs & Obliques", duration: "01:00", image: require("../Components/Images/bicycle.png") },
-  { title: "Russian Twists", description: "Core Rotation Movement", duration: "01:00", image: require("../Components/Images/russian.png") },
-  { title: "Leg Raises", description: "Lower abs & hip flexors", duration: "01:00", image: require("../Components/Images/legraises.png") },
+  { title: "Plank Hold", description: "Engages Core and Shoulders", duration: "00:30", image: require("../Components/Images/plank.jpg") },
+  { title: "Bicycle Crunches", description: "Targets Abs & Obliques", duration: "01:00", image: require("../Components/Images/bicycle.jpg") },
+  { title: "Russian Twists", description: "Core Rotation Movement", duration: "01:00", image: require("../Components/Images/russian.jpg") },
+  { title: "Leg Raises", description: "Lower abs & hip flexors", duration: "01:00", image: require("../Components/Images/legraises.jpg") },
 ];
 
 export default function DayExercises() {

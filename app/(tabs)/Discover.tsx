@@ -10,7 +10,7 @@ export default function DiscoverScreen() {
 
       {/* Big Challenge Card */}
       <TouchableOpacity style={styles.heroCard} onPress={() => router.push("/screens/WorkoutOverview")}>
-        <Image source={require("../Components/Images/plank.png")} style={styles.heroImage} />
+        <Image source={require("../Components/Images/plank.jpg")} style={styles.heroImage} />
         <View style={styles.heroOverlay}>
           <Text style={styles.heroTitle}>30-Days Plank Challenge</Text>
           <Text style={styles.heroSubtitle}>Strengthen Your Core Day By Day With Progressive Planks.</Text>
@@ -24,9 +24,9 @@ export default function DiscoverScreen() {
       <Text style={styles.sectionTitle}>Recommended For You</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {[
-          { title: "Core & Cardio Fusion", duration: "30 Min • Core", img: require("../Components/Images/bicycle.png") },
-          { title: "Sunrise Stretch Flow", duration: "20 Min • Full Body", img: require("../Components/Images/russian.png") },
-          { title: "Upper-Body Power", duration: "25 Min • Strength", img: require("../Components/Images/legraises.png") },
+          { title: "Core & Cardio Fusion", duration: "30 Min • Core", img: require("../Components/Images/bicycle.jpg") },
+          { title: "Sunrise Stretch Flow", duration: "20 Min • Full Body", img: require("../Components/Images/russian.jpg") },
+          { title: "Upper-Body Power", duration: "25 Min • Strength", img: require("../Components/Images/legraises.jpg") },
         ].map((item, idx) => (
           <TouchableOpacity key={idx} style={styles.smallCard} onPress={() => router.push("/screens/WorkoutOverview")}>
             <Image source={item.img} style={styles.smallImage} />
@@ -38,7 +38,7 @@ export default function DiscoverScreen() {
 
       {/* Another Banner */}
       <TouchableOpacity style={styles.banner}>
-        <Image source={require("../Components/Images/plank.png")} style={styles.bannerImage} />
+        <Image source={require("../Components/Images/plank.jpg")} style={styles.bannerImage} />
         <View style={styles.bannerOverlay}>
           <Text style={styles.bannerText}>Your Muscles Are Ready. Let's Build Strength.</Text>
         </View>
@@ -48,9 +48,9 @@ export default function DiscoverScreen() {
       <Text style={styles.sectionTitle}>Next-Level Sessions</Text>
       <ScrollView style={{ paddingBottom: 50 }} horizontal showsHorizontalScrollIndicator={false}>
         {[
-          { title: "Cardio Blast", img: require("../Components/Images/bicycle.png") },
-          { title: "Core Burn", img: require("../Components/Images/russian.png") },
-          { title: "Endurance Row Circuit", img: require("../Components/Images/legraises.png") },
+          { title: "Cardio Blast", img: require("../Components/Images/bicycle.jpg") },
+          { title: "Core Burn", img: require("../Components/Images/russian.jpg") },
+          { title: "Endurance Row Circuit", img: require("../Components/Images/legraises.jpg") },
         ].map((item, idx) => (
           <TouchableOpacity key={idx} style={styles.smallCard} onPress={() => router.push("/screens/WorkoutOverview")}>
             <Image source={item.img} style={styles.smallImage} />

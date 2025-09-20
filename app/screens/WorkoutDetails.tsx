@@ -6,7 +6,7 @@ export default function WorkoutDetails() {
     <ScrollView style={styles.container}>
       {/* Top Card */}
       <View style={styles.topCard}>
-        <Image source={require("../Components/Images/plank.png")} style={styles.cardImage} />
+        <Image source={require("../Components/Images/plank.jpg")} style={styles.cardImage} />
         <View style={{ flex: 1, marginLeft: 10 }}>
           <Text style={styles.cardTitle}>Core & Cardio Fusion</Text>
           <Text style={styles.cardDesc}>Run in Place Lifting Knees High</Text>

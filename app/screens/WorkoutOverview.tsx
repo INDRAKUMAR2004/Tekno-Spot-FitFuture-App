@@ -3,10 +3,10 @@ import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from "react
 import { router } from "expo-router";
 
 const exercises = [
-  { title: "High Knees", description: "Run in place lifting knees high", duration: "00:45", img: require("../Components/Images/bicycle.png") },
-  { title: "Mountain Climbers", description: "Cardio + core move", duration: "01:00", img: require("../Components/Images/plank.png") },
-  { title: "Plank Shoulder Taps", description: "Plank with alternate taps", duration: "00:45", img: require("../Components/Images/russian.png") },
-  { title: "Side Plank Hip Dips", description: "Strengthen obliques", duration: "00:45", img: require("../Components/Images/legraises.png") },
+  { title: "High Knees", description: "Run in place lifting knees high", duration: "00:45", img: require("../Components/Images/bicycle.jpg") },
+  { title: "Mountain Climbers", description: "Cardio + core move", duration: "01:00", img: require("../Components/Images/plank.jpg") },
+  { title: "Plank Shoulder Taps", description: "Plank with alternate taps", duration: "00:45", img: require("../Components/Images/russian.jpg") },
+  { title: "Side Plank Hip Dips", description: "Strengthen obliques", duration: "00:45", img: require("../Components/Images/legraises.jpg") },
 ];
 
 export default function WorkoutOverview() {
@@ -29,7 +29,7 @@ export default function WorkoutOverview() {
       )}
       ListHeaderComponent={
         <View>
-          <Image source={require("../Components/Images/plank.png")} style={styles.banner} />
+          <Image source={require("../Components/Images/plank.jpg")} style={styles.banner} />
           <Text style={styles.title}>Core & Cardio Fusion</Text>
           <Text style={styles.subTitle}>5 Exercises • Min Duration</Text>
         </View>

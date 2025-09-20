@@ -121,7 +121,7 @@ export default function Home() {
               title="Core Challenge"
               points={["5-10 min abs workout daily", "Planks, crunches, leg raises"]}
               goal="Stronger core & better posture"
-              image={require("../Components/Images/girl1.png")}
+              image={require("../Components/Images/girl1.jpg")}
               imageStyle={{
                 width: 200,
                 height: 200,
@@ -136,7 +136,7 @@ export default function Home() {
               title="Full Body Burn"
               points={["15-20 min workouts", "Squats, pushups, burpees"]}
               goal="Boost stamina & burn calories"
-              image={require("../Components/Images/workout.png")}
+              image={require("../Components/Images/workout.jpg")}
               imageStyle={{
                 width: 150,
                 height: 100,
@@ -151,7 +151,7 @@ export default function Home() {
               title="Yoga Flow"
               points={["20 min daily yoga", "Improve flexibility & calmness"]}
               goal="Improve Mobility"
-              image={require("../Components/Images/bend.png")}
+              image={require("../Components/Images/bend.jpg")}
               imageStyle={{
                 width: 170,
                 height: 150,
@@ -166,7 +166,7 @@ export default function Home() {
               title="Strength Challenge"
               points={["Progressive push-ups", "Jump squats, sprints"]}
               goal="Build Strength & muscle tone"
-              image={require("../Components/Images/arms.png")}
+              image={require("../Components/Images/arms.jpg")}
               imageStyle={{
                 width: 100,
                 height: 150,

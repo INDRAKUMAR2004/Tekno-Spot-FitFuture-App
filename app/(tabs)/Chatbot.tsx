@@ -119,7 +119,7 @@ export default function Chatbot() {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={90}
+      // keyboardVerticalOffset={90}
     >
       <SafeAreaView style={styles.safe}>
         <View style={styles.header}>
